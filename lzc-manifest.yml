@@ -1,0 +1,21 @@
+application:
+  subdomain: homarr
+  background_task: true
+  multi_instance: false
+  upstreams:
+    - location: /
+      backend: http://homarr:7575/
+services:
+  homarr:
+    # upstream: ghcr.io/homarr-labs/homarr:v1.77.0
+    image: ghcr.1ms.run/homarr-labs/homarr:v1.77.0
+    environment:
+      - SECRET_ENCRYPTION_KEY={{ stable_secret "homarr_encryption_key" | sha256sum }}
+    binds:
+      - /lzcapp/var/appdata:/appdata
+usage: |
+  首次打开应用后，按照 Homarr 初始化向导创建管理员账号和仪表盘。
+  已挂载 /var/run/docker.sock 以支持 Docker 集成；仅应授权可信用户使用。
+  宿主机需要存在该 socket，且允许容器访问。应用数据位于 /lzcapp/var/appdata。
+  加密密钥由系统稳定生成，不使用示例中的固定密钥。
+  迁移已有数据到另一台微服时，必须同时保留原加密密钥，否则已有集成凭据无法解密。

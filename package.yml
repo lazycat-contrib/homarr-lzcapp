@@ -1,0 +1,15 @@
+package: community.lazycat.app.homarr
+version: 1.77.0
+name: Homarr
+description: A modern and easy to use dashboard. 40+ integrations. 20K+ icons built in. Authentication out of the box. No YAML, drag and drop configuration.
+homepage: https://github.com/homarr-labs/homarr
+author: homarr-labs
+license: Apache-2.0
+min_os_version: 1.5.0
+locales:
+  zh:
+    name: Homarr
+    description: 现代易用的服务器仪表盘，支持 40 多种集成和 2 万多个图标，内置身份认证，可拖放配置。
+  en:
+    name: Homarr
+    description: A modern and easy to use dashboard. 40+ integrations. 20K+ icons built in. Authentication out of the box. No YAML, drag and drop configuration.

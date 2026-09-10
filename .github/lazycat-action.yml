@@ -1,0 +1,35 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: homarr
+build:
+  toolchains: []
+  run_buildscript: false
+images:
+  - id: homarr
+    target: service
+    service: homarr
+    source: ghcr.io/homarr-labs/homarr
+    channel: stable
+    sort: semver
+    tag_regex: '^v[0-9]+\.[0-9]+\.[0-9]+$'
+    delivery:
+      mode: mirror
+      require_digest_match: true
+stores:
+  official:
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Homarr
+    summary: A modern and easy to use dashboard. 40+ integrations. 20K+ icons built in. Authentication out of the box. No YAML, drag and drop configuration.
