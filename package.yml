@@ -1,5 +1,5 @@
 package: community.lazycat.app.homarr
-version: 1.77.0
+version: 1.77.1
 name: Homarr
 description: A modern and easy to use dashboard. 40+ integrations. 20K+ icons built in. Authentication out of the box. No YAML, drag and drop configuration.
 homepage: https://github.com/homarr-labs/homarr
